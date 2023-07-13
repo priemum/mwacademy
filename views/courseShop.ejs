@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+     <%- include("./partials/header.ejs") %>
+
+<body>
+
+          <%- include("./partials/navbar.ejs") %>
+
+     <div class="container">
+          <div class="con-head">
+               <h2> الدورات المقدمة من</h2>
+               <span>Money War Academy</span>
+               <div class="line-break-top"></div>
+          </div>
+
+          <section class="courses-gallery">
+               <div class="cards-con">
+                    <% if(courses == null) { %>
+
+                         <span class="error-msg"><%= error %></span>
+
+                         <% } else { %>
+                    <% courses.forEach(course => { %>
+                    <div class="card">
+                         <div class="card-cover" style="background-image: url('/uploads/<%= course.thumbnail %>');">
+                              <p><%= course.title %></p>
+                              <span class="course-price"><%= course.price %>$</span>
+                         </div>
+                         <div class="card-content">
+                              <p>ما الذي يقدمه</p>
+                              <div class="line-break"></div>
+                              <ul>
+                                   <% for (let i = 0; i < course.learnPoint.length; i++) { %>
+                                        <% const point = course.learnPoint[i]; %>
+                                        
+                                        <li><%= point %></li>
+                                   
+                                   <% } %>
+                              </ul>
+                              <div class="card-footer">
+                                   <a href="/course/<%= course._id %>" class="buy-link">
+                                        <span>شراء</span> <i class="fa-solid fa-cart-shopping" style="color: #006ff8;"></i>
+                                   </a>
+                              </div>
+                         </div>
+                    </div>
+                         <% }) %>
+                         <% } %>
+               </div>
+          </section>
+     </div>
+     <br><hr>
+
+     <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>
