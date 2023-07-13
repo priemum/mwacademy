@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+     <%- include("./partials/header.ejs") %>
+
+<body>
+     
+     <%- include("./partials/navbar.ejs") %>
+
+     <div class="container">
+          <div class="payment-con">
+               <% if(!course) { %>
+                    <span class="error-msg"><%= error %></span>
+               <% } else { %>
+               <div class="payment-head">
+                    <h2>
+                         <%= course.title %>
+                    </h2>
+               </div>
+               <div class="payment-details">
+                    <div class="prices-con">
+                         <p>السعر: <span><%= course.price %>$</span></p>
+                         <div class="line-break"></div>
+                         <p class="total-price">
+                              المجموع: <span><%= course.price %>$</span>
+                         </p>
+                         <div class="payment-method-con">
+                              <p>الدفع عن طريق</p>
+                              <div>
+                                   <a href="https://t.me/M_W_TRADING"><i class="fa-brands fa-telegram fa-2xl" style="color: #0088cc;"></i></a>
+                                   <span>أو</span>
+                                   <a href="https://api.whatsapp.com/send/?phone=9647725574910&text&type=phone_number&app_absent=0"><i class="fa-brands fa-whatsapp fa-2xl" style="color: #4fce5d;"></i></a>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+               <div class="payment-methods-logo">
+                    <img src="/images/Group 34.png" alt="payment-methods">
+               </div>
+               <% } %>
+          </div>
+     </div>
+
+     <br><hr>
+
+      <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>
