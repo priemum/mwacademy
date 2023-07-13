@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+     <%- include("./partials/header.ejs") %>
+
+<body>
+     
+          <%- include("./partials/navbar.ejs") %>
+
+     <div class="container">
+          <% if(error) { %>
+               <p class="error-msg"><%= error %></p>
+               <% } else { %>
+          <div class="course-con">
+               <div class="video-embed">
+                    <div style="padding:56.5% 0 0 0; position:relative;width: 100%; background-color: #000; max-width: 60rem;"><iframe src="https://player.vimeo.com/video/<%= videoUrl %>?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+                    <div class="course-head">
+                         <p> <%= course.title %> <span class="space-slash">|</span> <i class="fa-solid fa-users students-i" style="color: #ffffff;"></i> <%= course.students %> </p>
+                    </div>
+                    <div class="course-chapters">
+                         <% course.chapters.forEach(chapter => { %>
+                         <ul class="chapters-list">
+                                   <li>
+                                        <span>الفصل <%= course.chapters.indexOf(chapter) + 1 %>:</span><span class="chapter-title"><%= chapter.chapTitle %></span>
+                                        <ul class="sub-list">
+                                             <% chapter.videos.forEach(video => { %>
+                                                  <li class="video-link-con">
+                                                       <div>
+                                                            <span><%= chapter.videos.indexOf(video) + 1 %>
+                                                            </span>. <a href="/watch/<%= course._id %>/<%= video.url %>"><%= video.title %></a>
+                                                       </div>
+                                                       <i class="fa-solid fa-circle-play fa-xl" style="color: #ffffff;"></i>
+                                                  </li>
+                                                  <% }) %>
+                                        </ul>
+                                   </li>
+                         </ul>
+                         <% }) %>
+          <br><br>
+                    </div>
+
+               </div>
+          </div>
+          <% } %>
+     </div>
+     
+<script>
+
+     $(document).bind("contextmenu",function(e){
+     return false;
+     });
+
+     $(document).ready(function() {
+          $('.chapter-title').click(function() {
+          $(this).siblings('.sub-list').slideToggle();
+          });
+        });
+</script>
+<script>  
+     document.onkeypress = function (event) {  
+     event = (event || window.event);  
+     if (event.keyCode == 123) {  
+     return false;  
+     }  
+     }  
+     document.onmousedown = function (event) {  
+     event = (event || window.event);  
+     if (event.keyCode == 123) {  
+     return false;  
+     }  
+     }  
+     document.onkeydown = function (event) {  
+     event = (event || window.event);  
+     if (event.keyCode == 123) {  
+     return false;  
+     }  
+     }  
+
+    document.addEventListener("keydown", function(e) {
+  if(e.ctrlKey && e.which == 83) {
+    e.preventDefault();
+  }
+  if(e.ctrlKey) {
+    e.preventDefault();
+  }
+     });
+     </script>  
+
+</body>
+</html>
