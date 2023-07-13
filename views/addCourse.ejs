@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+     <%- include("./partials/header.ejs") %>
+
+<body>
+     
+     <%- include("./partials/navbar.ejs") %>
+
+     <div class="container">
+          <div class="con-head">
+               <p>اضافة دورة جديدة</p>
+          </div>
+          <div class="con-body">
+               <form method="POST" enctype="multipart/form-data">
+                    <% if(errors) errors.array().forEach(error => { %> <span class="error-msg"><%= error.msg %></span> <% }) %>
+                    <% if(error) { %> <span class="error-msg"><%= error %></span> <% } %>
+                    <% if(note) { %> <span class="note-msg"><%= note %></span> <% } %>
+                    <div class="input-con">
+                         <span>الاسم الكامل للدورة*</span>
+                         <input type="text" name="title" id="title" placeholder="Smart Money Concept">
+                    </div>
+                    <div class="input-con-con">
+                         <div class="input-con">
+                              <span>عدد ساعات الدورة*</span>
+                              <input type="number" name="hours" id="hours">
+                         </div>
+                         <div class="input-con">
+                              <span>عدد محاضرات الدورة*</span>
+                              <input type="number" name="lecturesNumber" id="lectures">
+                         </div>
+                    </div>
+                    
+                    <div class="input-con">
+                         <span>وصف الدورة*</span>
+                         <textarea type="text" name="description" id="description" cols="40" rows="10" placeholder="مفهوم المال الذكي سيقدم مجموعة متنوعة من المحتوى والمعلومات المفيدة التي ستساعد المتعلمين على فهم وتطبيق هذا المفهوم في التداول واتخاذ قرارات مالية أكثر ذكاءً."></textarea>
+                    </div>
+                    <div class="input-con">
+                         <span>لغة الدورة*</span>
+                         <input type="text" name="lang" id="lang" placeholder="اللغة العربية">
+                    </div>
+                    <div class="input-con">
+                         <span>قريبا؟*</span>
+                         <input type="checkbox" name="soon" id="soon" placeholder="تتوفر قريبا؟">
+                    </div>
+                    <div class="input-con learns-for-watcher">
+                         <span>ما الذي سيتعلم المشاهد*</span>
+                         
+                         <div class="input-con">
+                              <textarea type="text" rows="5" maxlength="80" cols="80" name="learnPoint" id="s1" placeholder="ستتعرف على أساسيات التداول النمطي ومفهومه وكيفية استخدام الأنماط"></textarea>
+                              <i class="fa-solid fa-1" style="color: #ffffff;"></i>
+                         </div>
+                        
+                         <div class="input-con">
+                              <textarea type="text" rows="5" cols="80" maxlength="80" name="learnPoint" id="s2" placeholder="ستتعرف على أساسيات التداول النمطي ومفهومه وكيفية استخدام الأنماط"></textarea>
+                              <i class="fa-solid fa-2" style="color: #ffffff;"></i>
+                         </div>
+                        
+                         <div class="input-con">
+                              <textarea type="text" rows="5" cols="80" maxlength="80" name="learnPoint" id="s3" placeholder="ستتعرف على أساسيات التداول النمطي ومفهومه وكيفية استخدام الأنماط"></textarea>
+                              <i class="fa-solid fa-3" style="color: #ffffff;"></i>
+                         </div>
+                        
+                         <div class="input-con">
+                              <textarea type="text" rows="5" cols="80" maxlength="80" name="learnPoint" id="s4" placeholder="ستتعرف على أساسيات التداول النمطي ومفهومه وكيفية استخدام الأنماط"></textarea>
+                              <i class="fa-solid fa-4" style="color: #ffffff;"></i>
+                         </div>
+                        
+                         <div class="input-con">
+                              <textarea type="text" rows="5" cols="80" maxlength="80" name="learnPoint" id="s5" placeholder="ستتعرف على أساسيات التداول النمطي ومفهومه وكيفية استخدام الأنماط"></textarea>
+                              <i class="fa-solid fa-5" style="color: #ffffff;"></i>
+                         </div>
+                    </div>
+                    <div class="input-con thumbnail">
+                         <i class="fa-solid fa-image fa-xl" style="color: #006ff8;"></i>
+                         <input type="file" name="thumbnail" id="thumbnail">
+                         <p>رفع غلاف الدورة</p>
+                    </div>
+                    <br>
+                    <div class="input-con">
+                         <span> سعر الدورة بالدولار*</span>
+                         <input type="number" name="price" id="price">
+                    </div>
+                    <div class="line-break"></div>
+                    
+                    <div class="videos-section">
+                         <div class="videos-head">
+                              <h3>قسم اضافة الفيديوهات</h3>
+                         </div>
+                         <button type="button" id="addChapter">اضافة فصل<i class="fa-solid fa-plus" style="color: #ffffff;"></i></button>
+                         <div id="chaptersContainer">
+                              <!-- Chapters and their videos will be added dynamically here -->
+                         </div>
+                    </div>
+                       
+                       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                       <script>
+                         $(document).ready(function() {
+                           var chapterIndex = 1;
+                           var videoIndex = 1;
+                       
+                           // Add chapter and video fields when the "Add Chapter" button is clicked
+                           $("#addChapter").click(function() {
+                             var chapterField = '<div class="chapter chapter' + chapterIndex + '">' + '<button type="button" class="removeChapter" data-chapter="' + chapterIndex + '"><i class="fa-solid fa-circle-xmark" style="color: #ffffff;"></i></button>' +
+                               '<h3 class="chapter-title">الفصل ' + chapterIndex + '</h3>' +
+                               '<div class="input-con">' +
+                               `<input type="text" name="chapterTitle" placeholder="عنوان الفصل"><br>` +
+                               `<input type="text" style="display: none;" name="chapterNumber" value="${chapterIndex}" placeholder="n"><br>` +
+                               '</div>' +
+                               '<div class="videosContainer" style="width: 100%;display: flex;flex-direction: column;">' +
+                               '</div>' +
+                               '<button type="button" class="addVideo" data-chapter="' + chapterIndex + '">اضافة فيديو<i class="fa-solid fa-plus" style="color: #ffffff;"></i></button>' +
+                                
+                               '</div>';
+                       
+                             $("#chaptersContainer").append(chapterField);
+                             chapterIndex++;
+                           });
+                       
+                           // Add video field when the "Add Video" button is clicked
+                           $("#chaptersContainer").on("click", ".addVideo", function() {
+                             var chapterIndex = $(this).data("chapter");
+                             var videosContainer = $(this).siblings(".videosContainer");
+                              
+                             var videoField = '<div class="input-con video-field">' +
+                               `<input type="text" name="videoTitle" placeholder="عنوان الفيديو">` +
+                               `<input type="text" name="videoUrl" placeholder="رابط الفيديو">` +
+                               `<input type="text" style="display: none;" name="videoChapter" value="${chapterIndex}" placeholder="رابط الفيديو">` +
+                               '<button type="button" class="removeVideo">ازالة الفيديو</button>' +
+                               '</div>';
+                       
+                             videosContainer.append(videoField);
+                             var videoIndex = 1;
+                           });
+                       
+                           // Remove chapter when the "Remove Chapter" button is clicked
+                           $("#chaptersContainer").on("click", ".removeChapter", function() {
+                             var chapterIndex = $(this).data("chapter");
+                             $(".chapter" + chapterIndex).remove();
+                           });
+                       
+                           // Remove video when the "Remove Video" button is clicked
+                           $("#chaptersContainer").on("click", ".removeVideo", function() {
+                             $(this).parent().remove();
+                           });
+                       
+                       
+                             // Get values of dynamically added chapter and video fields
+                             var formData = {};
+                             $(".videosContainer").each(function(index) {
+                               var chapterIndex = index + 1;
+                               var chapterNumber = $("input[name='chapterNumber" + chapterIndex + "']").val();
+                               var videoTitles = $(this).find("input[name^='videoTitle" + chapterIndex + "']").map(function() {
+                                 return $(this).val();
+                               }).get();
+                               var videoUrls = $(this).find("input[name^='videoUrl" + chapterIndex + "']").map(function() {
+                                 return $(this).val();
+                               }).get();
+                       
+                               formData[chapterIndex] = {
+                                 chapterNumber: chapterNumber,
+                                 videos: []
+                               };
+                       
+                               for (var i = 0; i < videoTitles.length; i++) {
+                                 formData[chapterIndex].videos.push({
+                                   title: videoTitles[i],
+                                   url: videoUrls[i]
+                                 });
+                               }
+                             });
+                       
+                           });
+                       </script>
+                       
+                       
+                       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                       
+
+                    <button type="submit">
+                         رفع <i class="fa-solid fa-cloud-arrow-up" style="color: #ffffff;"></i>
+                    </button>
+               </form>
+          </div>
+     </div>
+
+     <br><hr>
+
+     <%- include("./partials/footer.ejs") %>
+
+
+</body>
+</html>
