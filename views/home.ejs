@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+     <%- include("./partials/header.ejs") %> 
+<body>
+     <%- include("./partials/navbar.ejs") %> 
+     
+     <div class="container">
+          <br>
+          <section class="section-one">
+               <h1>Money War Academy</h1>
+               <h3>كن خبيراً في مجال الفوركس وأزواج العملات الان</h3>
+               <p>فريق مكون من <span>كادر خبراء احترافي</span> يقدم لك خبرة سنتين في سوق العملات النقدية (سوق الفوركس ) باحدث الكورسات المتطورة بشروحات غنية بالابداع  والتطور باشراف فريق MW-Trading</p>
+               <% if(!user || user == null || user == undefined) { %>    
+                    <a href="/signup">التسجيل الان</a>
+                    <% } else { %>
+                         <a href="/profile">الملف الشخصي</a>
+                    <% } %>    
+          
+          </section>
+
+          <section class="section-two">
+               <p>"انضم إلى مجتمعنا التعليمي النابض بالحياة والذي يتيح لك التفاعل مع محترفي التداول والخبراء من خلال منصتنا الحديثة، حيث ستتعلم تقنيات التداول المبتكرة والتحليل الفني وإدارة رأس المال وتطوير استراتيجياتك الخاصة”</p>
+          </section>
+
+          <section class="section-three">
+               <p>ما الذي نوفره لك؟</p>
+               <ul>
+                    <li>
+                         <i class="fa-solid fa-graduation-cap" style="color: #000000;"></i>
+                         <p>محتوى تعليمي متنوع وشامل يشمل جميع جوانب التداول، بدءًا من الأساسيات وصولاً إلى الاستراتيجيات المتقدمة وتحليل الأسواق</p>
+                    </li>
+                    <li>
+                         <i class="fa-solid fa-clipboard-check" style="color: #000000;"></i>
+                         <p>توفير تدريب عملي وفرص للتطبيق العملي، حيث يمكنك تجربة استراتيجيات التداول وتحليل البيانات الفعلية في بيئة تداول آمنة ومحاكاة للسوق</p>
+                    </li>
+                    <li>
+                         <i class="fa-solid fa-chalkboard-user" style="color: #000000;"></i>
+                         <p> التوجيه والنصائح القيمة من خبراء التداول، حيث يمكنهم مشاركة معرفتهم وخبرتهم في تحليل الأسواق واستراتيجيات التداول الفعالة</p>
+                    </li>
+                    <li>
+                         <i class="fa-solid fa-toolbox" style="color: #000000;"></i>
+                         <p> الوصول إلى أدوات وتقنيات تداول متقدمة تساعدك على تحليل البيانات ورصد الأسواق وتنفيذ الصفقات بكفاءة</p>
+                    </li>
+                    <li>
+                         <i class="fa-solid fa-people-group" style="color: #000000;"></i>
+                         <p>ستكون جزءًا من مجتمع تعليمي نشط حيث يمكنك التواصل والتفاعل مع المتدربين الآخرين وخبراء التداول</p>
+                    </li>
+               </ul>
+          </section>
+
+          <section class="section-four">
+               <h3>الدورات المقدمة</h3>
+               <br>
+               <div class="cards-con">
+                    <% courses.forEach(course => { %>
+                    <div class="card">
+                         <div class="card-cover card1" style="background-image: url('/uploads/<%= course.thumbnail %>');">
+                              <p><%= course.title %></p>
+                              <span class="course-price"><%= course.price %>$</span>
+                         </div>
+                         <div class="card-content">
+                              <p>ما الذي يقدمه</p>
+                              <div class="line-break"></div>
+                              <ul>
+                                   <% course.learnPoint.forEach(point => { %>
+                                   <li><%= point %></li>
+                                    <% }) %>
+                              </ul>
+                              <div class="card-footer">
+                                   <a href="/course/<%= course._id %>" class="buy-link">
+                                        <span>شراء</span> <i class="fa-solid fa-cart-shopping" style="color: #006ff8;"></i>
+                                   </a>
+                              </div>
+                         </div>
+                    </div>
+                    <br>
+               <% }) %>
+               </div>
+               <a class="more-courses-link" href="/courses">المزيد من الدورات التعليمية</a>
+               <br>
+          </section>
+
+          <section class="section-five">
+               <div class="sec-5-con">
+                    <img src="/images/Man speaking about statistics on an online business meeting.png" alt="man">
+                    <div>
+                         <p class="p-title-sec-5">من نحن؟</p>
+                         <p class="p-desc-sec-5">فريق مكون من كادر خبراء احترافي يقدم لك خبرة سنتين في سوق العملات النقدية (سوق الفوركس) باحدث الكورسات المتطورة بشروحات غنيه بالابداع  والتطور باشراف فريق MW-Trading</p>
+                    </div>
+               </div>
+          </section>
+     </div>
+     <br>
+
+     <%- include("./partials/footer.ejs") %> 
+
+</body>
+</html>
