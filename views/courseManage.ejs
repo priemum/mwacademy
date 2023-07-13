@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("./partials/header.ejs") %>
+
+<body>
+     
+     <%- include("./partials/navbar.ejs") %>
+
+     <div class="container">
+          <% if(note) { %>
+               
+               <% } %>
+          <% if(course == null) { %>
+               <span class="error-msg"><%= error %></span>
+               <% } else { %>
+          <div class="con-head">
+               <p><%= course.title %></p>
+          </div>
+          <div class="course-manage-card">
+               <% if(error) { %>
+                    <span class="error-msg"><%= error %></span>
+                    <% } else if(note) { %>
+                         <span class="note-msg"><%= note %></span>
+                    <% } else { %>
+                         <form method="POST">
+                              <button class="delete-course-btn" type="submit">حذف الدورة</button>
+                         </form>
+                         <% } %>
+               <div class="course-details">
+                    <div class="price">السعر: <span><%= course.price %>$</span></div>
+                    <div class="line-break"></div>
+                    <ul class="stats">
+                         <li><span><%= course.students %></span>  طالب</li>
+                         <li><i class="fa-solid fa-language" style="color: #ffffff;"></i><%= course.lang %></li>
+                         <li><i class="fa-solid fa-video" style="color: #ffffff;"></i><span><%= course.hours %></span>ساعة للمشاهدة</li>
+                         <li><i class="fa-solid fa-chalkboard-user" style="color: #ffffff;"></i><span><%= course.lecturesNumber %></span>محاضرة</li>
+                    </ul>
+               </div>
+               <div class="new-vid-con">
+                    <br>
+                    <p style="color: #fff;">اضافة فيديو جديد للدورة</p>
+                    <form method="POST" action="/admin/manage/course/<%= course._id %>/add-video">
+                         <input type="text" name="videoTitle" placeholder="عنوان الفيديو">
+                         <input type="text" name="videoUrl" placeholder="رابط الفيديو">
+                         <button type="submit" class="add-vid-btn">اضافة</button>
+                    </form>
+               </div>
+               <div class="new-vid-con">
+                    <br>
+                    <p style="color: #fff;">قريباً</p>
+                    <form method="POST" action="/admin/manage/course/<%= course._id %>/soon">
+                         <input type="checkbox" name="soon" <% if(course.soon !== "on") { %> checked <% } else {%><% } %>>
+                         <button type="submit" class="soon-vid-btn">
+                              <% if(course.soon == "on") { %>
+                                   غير متوفرة
+                              <% } else { %>
+                                   متوفرة للبيع
+                                   <% } %>
+                         </button>
+                    </form>
+               </div>
+          </div>
+          <% } %>
+
+     </div>
+
+     <br><hr>
+
+     <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>
