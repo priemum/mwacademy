@@ -1,0 +1,30 @@
+<footer>
+     <div class="footer-con">
+          <div>
+               <img src="/images/logo.JPG" alt="logo">
+               <p>© 2023 Money War <br> Powered By <a class="HeisenUSX" href="https://t.me/l0OOI">HeisenUSX</a></p>
+          </div>
+          <div>
+               <div>
+                    <a href="https://t.me/M_W_TRADING"><i class="fa-brands fa-telegram" style="color: #ffffff;"></i></a>
+                    <a href="https://www.instagram.com/7c890/"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=9647725574910&text&type=phone_number&app_absent=0"><i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i></a>
+               </div>
+               <div>
+                    <div>
+                         <a href="/courses">الدورات</a>
+                    </div>
+                    <% if(!user) { %>
+                         <div>
+                              <a href="/login">تسجيل الدخول</a>
+                              <a href="/signup">التسجيل</a>
+                         </div>
+                    <% } else { %>
+                         <div>
+                              <a href="/profile">الملف الشخصي</a>
+                         </div>
+                         <% } %>
+               </div>
+          </div>
+     </div>
+</footer>
