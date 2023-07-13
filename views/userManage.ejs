@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+     <%- include("./partials/header.ejs") %>
+     
+<body>
+     
+     <%- include("./partials/navbar.ejs") %>
+
+     <div class="container"> 
+          <div class="user-profile-edit-con">
+               <div class="action-links">
+                    <a href="/dashboard">الإدارة</a>
+                    <a href="/">الصفحة الرئيسية</a>
+               </div>
+               <div class="user-details">
+                    <ul>
+                         <li>
+                              <i class="fa-solid fa-user" style="color: #006ff8;"></i> <span><%= userM.userName %></span>
+                         </li>
+                         <li>
+                              <i class="fa-solid fa-envelope" style="color: #006ff8;"></i> <span><%= userM.email %></span>
+                         </li>
+                         <li>
+                              <i class="fa-solid fa-fingerprint" style="color: #006ff8;"></i> <span onclick="copyToClipboard()" id="user-id"><%= userM.userId %></span> <span class="copy-hint">اضغط للنسخ</span>
+                         </li>
+                    </ul>
+               </div>
+               <div class="line-break"></div>
+               <div class="user-courses-manage">
+                    <div class="con-head">
+                         <p><%= userM.userName %> اضافة دورات ل</p>
+                    </div>
+                    <div class="courses">
+                         <% if(!courses) { %>
+                              <p>لا يوجد كورسات حاليا</p>
+                              <% } else { %>
+                                   <% courses.forEach(course => { %>
+                         <div class="course-card">
+                              <div class="course-details">
+                                   <p><%= course.title %></p>
+                                   <p>السعر: <span><%= course.price %>$</span></p>
+                              </div>
+                              <% if(userM.courses.includes(course._id) == true) { %>
+                                   <form method="POST" action="/admin/remove/<%= userM._id %>/<%= course._id %>">
+                                        <button type="submit" class="already-btn">ازالة</button>
+                                   </form>
+                              <% } else { %>
+                                   <form method="POST" action="/admin/add/<%= userM._id %>/<%= course._id %>">
+                                        <button type="submit" class="add-course-btn"><i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i></button>
+                                   </form>
+                                   <% } %>
+                         </div>
+                    <% }) %>
+                         <% } %>
+                    </div>
+
+               </div>
+          </div>
+     </div>
+
+     <br><hr>
+     
+     <%- include("./partials/footer.ejs") %>
+
+     <div id="copied-snackbar">تم النسخ الى الحافظة</div>
+</body>
+</html>
