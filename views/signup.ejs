@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+     <%- include("./partials/header.ejs") %>
+<body>
+     
+     <%- include("./partials/navbar.ejs") %>
+
+     <div class="container">
+          
+          <section class="section-one">
+               <div class="fade-section-one">
+               </div>
+               <div class="section-1-content">
+                    <h2>إبدأ رحلتك معنا بالخطوة الاولى</h2>
+                    <p>سجل حساباً جديداً واحصل على توثيق في المنصة</p>
+               </div>
+          </section>
+          <br>
+          <section class="section-two">
+               <div>
+                    <div class="con-head">
+                         <p>Money War Academy Account</p>
+                    </div>
+                    <form method="POST">
+                         <% if(errors) errors.array().forEach(error => { %> <span class="error-msg"><%= error.msg %></span> <% }) %>
+                         <% if(error) { %> <span class="error-msg"><%= error %></span> <% } %>
+                         <% if(note) { %> <span class="note-msg"><%= note %></span> <% } %>
+                         <div class="input-con">
+                              <span>*الاسم الكامل</span>
+                              <input type="text" name="userName" id="username-input" placeholder="محمد علي">
+                         </div>
+                         <div class="input-con">
+                              <span>*البريد الالكتروني</span>
+                              <input type="text" name="email" id="email-input" placeholder="mohammed@gmail.com">
+                         </div>
+                         <div class="input-con">
+                              <span>*كلمة المرور</span>
+                              <input type="password" name="password" id="password-input" placeholder="••••••••">
+                         </div>
+                         <div class="input-con-btn">
+                              <button type="submit">انشاء الحساب</button>
+                         </div>
+                         <a href="/login">تمتلك حساباً بالفعل؟ تسجيل الدخول</a>
+                    </form>
+               </div>
+          </section>
+          <br><br>
+
+     </div>
+     <br><hr>
+
+     <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>
