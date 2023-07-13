@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+     <%- include("./partials/header.ejs") %>
+
+<body>
+     
+     <%- include("./partials/navbar.ejs") %>
+     
+     <div class="container">
+          <div class="course-card">
+               <div class="course-cover">
+                    <img src="/uploads/<%= course.thumbnail %>" alt="cover-course">
+               </div>
+               <div class="course-title">
+                    <h1><%= course.title %></h1>
+               </div>
+               <div class="course-details">
+                    <p class="course-desc">
+                         <%= course.description %>
+                    </p>
+                    <div class="sLine-break"></div>
+                    <ul class="stats">
+                         <li><span><%= course.students %></span>  طالب</li>
+                         <li><i class="fa-solid fa-language" style="color: #ffffff;"></i>اللغة العربية</li>
+                         <li><i class="fa-solid fa-video" style="color: #ffffff;"></i><span><%= course.hours %></span>ساعة للمشاهدة</li>
+                         <li><i class="fa-solid fa-chalkboard-user" style="color: #ffffff;"></i><span><%= course.lecturesNumber %></span>محاضرة</li>
+                    </ul>
+                    <div class="buy-btn">
+                         <% if(course.soon == "off") { %>
+                         <a class="buy-link" href="/payment/<%= course._id %>">
+                                   <button>
+                                        الشراء <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
+                                        <span><%= course.price %>$</span>
+                                   </button>
+                         </a>
+                              <% } else { %>
+                                   <a class="buy-link">
+                                        <button>
+                                             سيتوفر قريباً 
+                                        </button>
+                                   </a>
+                                   <% } %>
+                         <p>بشرائك انت توافق على جميع الشروط التي توفرها المنصة</p>
+                    </div>
+               </div>
+               <div class="course-offers-con">
+                    <p>ما الذي تقدمه الدورة</p>
+                    <div class="line-break"></div>
+                    <ul class="learn-points">
+                         <% course.learnPoint.forEach(point => { %>
+                              <li>
+                                   <%= point %>
+                              </li>
+                         <% }) %>
+                    </ul>
+               </div>
+          </div>
+     </div>
+
+     <br><hr>
+
+     <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>
