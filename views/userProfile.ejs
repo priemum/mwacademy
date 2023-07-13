@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+     <%- include("./partials/header.ejs") %>
+
+<body>
+     
+      <%- include("./partials/navbar.ejs") %>
+
+     <div class="container"> 
+          <div class="user-profile-con">
+               <% if(error) { %>
+                    <span class="error-msg"><%= error %></span>
+                    <% } else { %>
+               <div class="user-details">
+                    <ul>
+                         <li>
+                              <i class="fa-solid fa-user" style="color: #006ff8;"></i> <span><%= user.userName %></span> <a class="logout-btn" href="/logout">تسجيل الخروج</a>
+                         </li>
+                         <li>
+                              <i class="fa-solid fa-envelope" style="color: #006ff8;"></i> <span><%= user.email %></span>
+                         </li>
+                         <li>
+                              <i class="fa-solid fa-fingerprint" style="color: #006ff8;"></i> <span onclick="copyToClipboard()" id="user-id"><%= user.userId %></span> <span class="copy-hint">اضغط للنسخ</span>
+                         </li>
+                    </ul>
+                    <a href="/forgot-password">اعادة تعيين كلمة المرور</a>
+               </div>
+               
+
+               <div class="line-break"></div>
+               <div class="user-courses">
+                    <div class="con-head">
+                         <p>دوراتي</p>
+                    </div>
+                    <div class="courses">
+                         <% courses.forEach(course => { %>
+                         <div class="course-card">
+                              <div class="course-details">
+                                   <p><%= course.title %></p>
+                                   <p>السعر: <span><%= course.price %>$</span></p>
+                              </div>
+                                   <a href="/watch/<%= course._id %>/<% if(course.chapters.length <= 0) { %><% } else { %><%= course.chapters[0].videos[0].url %><% } %>" class="watch-btn">المشاهدة</a>
+                         </div>
+                    <% }) %>
+                    </div>
+               </div>
+               <% } %>
+          </div>
+     </div>
+
+
+
+     <div id="copied-snackbar">تم النسخ الى الحافظة</div>
+</body>
+</html>
