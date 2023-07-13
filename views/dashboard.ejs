@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+     <%- include("./partials/header.ejs") %>
+
+<body>
+     
+     <%- include("./partials/navbar.ejs") %>
+
+     <div class="container">
+          <div class="dash-con">
+               <div class="search-bar">
+                    <form method="POST" action="/dashboard">
+                         <input type="text" name="userIdentify" id="userIdentify" placeholder="البحث عن مستخدم ****652">
+                         <button type="submit"><i class="fa-solid fa-magnifying-glass fa-xl" style="color: #006ff8;"></i></button>
+                    </form>
+               </div>
+               <% if(error) { %>
+                    <span class="error-msg"><%= error %></span>
+                    <% } else { %> <% } %>
+               <div class="action-links">
+                    <a href="/admin/manage/courses">إدارة الدورات</a>
+                    <a href="/admin/add/course">دورة جديدة</a>
+               </div>
+               <div class="visits-con">
+                    <p>عدد زيارات المنصة</p>
+                    <div>
+                         <span><%= count %></span><p>زيارة</p>
+                    </div>
+               </div>
+               <a class="main-link" href="/">الصفحة الرئيسية</a>
+          </div>
+     </div>
+
+     <br><hr>
+
+     <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>
