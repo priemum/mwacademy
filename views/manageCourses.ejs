@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+     <%- include("./partials/header.ejs") %>
+
+<body>
+     
+      <%- include("./partials/navbar.ejs") %>
+
+     <div class="container">
+
+          <div class="managing-con">
+               <div class="con-head">
+                    <p>ادارة الدورات</p>
+                    <div class="line-break"></div>
+               </div>
+
+               <div class="courses-list-con">
+                    <ul class="courses">
+                         <% courses.forEach(course => { %>
+                         <li class="course-card">
+                              <div class="course-details">
+                                   <p>دورة <%= course.title %></p>
+                                   <p>السعر: <span><%= course.price %>$</span></p>
+                              </div>
+                                   <a class="edit-btn" href="/admin/course/manage/<%= course._id %>">التعديل</a>
+                         </li>
+                         <% }) %>
+                    </ul>
+               </div>
+
+          </div>
+
+     </div>
+
+     <br><hr>
+
+     <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>
