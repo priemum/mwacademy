@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("./partials/header.ejs") %>
+
+<body>
+     
+     <%- include("./partials/navbar.ejs") %>
+
+     <div class="container">
+          <div class="section-one">
+               <div class="fade-section-one">
+               </div>
+               <div class="section-one-content">
+                    <% if(errors) { errors.array().forEach(error => { %> <span class="error-msg"><%= error.msg %></span> <% }) }  %> 
+                    <% if(error) { %> <span class="error-msg-verify"><%= error %></span> <% } else { %>
+                            <span class="success">
+                              <i class="fa-solid fa-circle-check" style="color: #ffffff;"></i>  تم توثيق الحساب 
+                            </span>
+                         <% } %>
+                    <% if(note) { %> <span class="note-msg"><%= note %></span> <% } %>
+                    <% if(newCode) { %>
+                         <form class="form-resend" method="POST" action="/verify/<%= newCode %>"> <button type="submit">ارسال بريد تاكيد اخر</button> </form>
+                         <% } %>
+               </div>
+          </div>
+          <a href="/login" class="login-link">تسجيل الدخول</a>
+     </div>
+
+</body>
+</html>
