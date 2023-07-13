@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("./partials/header.ejs") %>
+
+<body>
+     
+     <%- include("./partials/navbar.ejs") %>
+
+     <div class="container">
+          
+          <section class="section-one">
+               <div class="fade-section-one">
+               </div>
+               <div class="section-1-content">
+                    <h2>سجل دخولك من جديد</h2>
+               </div>
+          </section>
+<br>
+          <section class="section-two">
+               <div>
+                    <div class="con-head">
+                         <p>Money War Academy Account</p>
+                    </div>
+                    <form method="POST">
+                         <% if(errors) errors.array().forEach(error => { %> <span class="error-msg"><%= error.msg %></span> <% }) %>
+                         <% if(error) { %> <span class="error-msg"><%= error %></span> <% } %>
+                         <% if(note) { %> <span class="note-msg"><%= note %></span> <% } %>
+                         <div class="input-con">
+                              <span>*البريد الالكتروني</span>
+                              <input type="email" name="email" id="email-input" placeholder="mohammed@gmail.com">
+                         </div>
+                         <div class="input-con">
+                              <span>*كلمة المرور</span>
+                              <input type="password" name="password" id="password-input" placeholder="••••••••">
+                              <a href="/forgot-password/">نسيت كلمة المرور</a>
+                         </div>
+                         <div class="input-con-btn">
+                              <button type="submit">تسجيل الدخول</button>
+                         </div>
+                         <a href="/signup">لا تمتلك حساباً؟ انشاء حساب</a>
+                    </form>
+               </div>
+          </section>
+          <br><br>
+
+     </div>
+
+     <br><hr>
+
+     <%- include("./partials/footer.ejs") %>
+
+</body>
+</html>
