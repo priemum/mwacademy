@@ -1,0 +1,96 @@
+* {
+     box-sizing: border-box;
+     font-family: 'Cairo', sans-serif;
+     padding: 0;
+     /* border: dotted 1px red; */
+     margin: 0;
+}
+
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+
+
+body {
+     background-color: #0F0E0E;
+}
+
+.container {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.managing-con {
+     width: 100%;
+     padding: 1rem;
+}
+
+.managing-con .con-head {
+     padding: 1rem;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     color: #fff;
+     text-align: center;
+     font-size: 1.6rem;
+}
+
+.line-break {
+     height: 1px;
+     width: 60%;
+     background-color: #302f2fbb;
+}
+
+.courses-list-con {
+     width: 100%;
+}
+
+.course-card {
+     place-self: center;
+     width: 100%;
+     display: flex;
+     padding: 0.5rem;
+     direction: rtl;
+     align-items: center;
+     color: #fff;
+     border: 1px solid #006ff8;
+     justify-content: space-between;
+     border-radius: 6px;
+     background-color: #1B1B1B;
+     max-width: 450px;
+}
+
+.course-card .course-details {
+     font-size: 0.85rem;
+     width: 62%;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     align-items: flex-start;
+}
+
+.course-card .edit-btn {
+     width: 90px;
+     padding: 2px 2px;
+     background-color: #b7b7b72c;
+     border: none;
+     border-radius: 6px;
+     cursor: pointer;
+     color: #fff;
+     text-align: center;
+     text-decoration: none;
+}
+
+.courses {
+     display: grid;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     list-style: none;
+     gap: 1rem;
+     grid-template-columns: repeat(1, minmax(0, 1fr));
+}

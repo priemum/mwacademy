@@ -1,0 +1,117 @@
+header {
+     width: 100%;
+     height: auto;
+}
+
+.navbar {
+     width: 100%;
+     background-color: rgba(0, 0, 0, 0.98);
+     color: #fff;
+     display: flex;
+     height: 104px;
+     flex-shrink: 0;
+     position: relative;
+     padding: 1rem;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.navbar ul {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+     position: absolute;
+     transform: translateY(-250%);
+     transition: 0.2s ease;
+     background-color: rgba(0, 0, 0, 0.75);
+     width: 100%;
+     z-index: 10000;
+     left: 0;
+     top: -30px;
+     padding: 0.4rem 0 0.4rem 0;
+     justify-content: center;
+     align-items: center;
+}
+
+.navbar ul li {
+     list-style: none;
+}
+
+.navbar ul li a {
+     font-weight: 600;
+     color: #fff;
+     text-decoration: none;
+}
+
+.navbar ul li a:hover {
+     text-decoration: underline;
+}
+
+.navbar .logo img {
+     border-radius: 50%;
+     border: 1px solid white;
+     margin-top: 10px;
+}
+
+.navbar .hamburger {
+     z-index: 100000;
+     margin-top: 1rem;
+}
+
+.brand-links-con {
+     display: flex;
+     gap: 50px;
+     max-height: 10rem;
+     max-width: 20rem;
+}
+
+@media only screen and (min-width: 500px) {
+
+     .navbar {
+          justify-content: center;
+          gap: 2rem;
+     }
+
+     .brand-links-con {
+          display: flex;
+          gap: 50px;
+          max-height: fit-content;
+          max-width: 40rem;
+     }
+
+     .navbar ul {
+          display: flex;
+          top: 0;
+          transform: translateY(0);
+          background-color: transparent;
+          padding: 0;
+          position: relative;
+          flex-direction: row;
+     }
+     
+     .navbar .hamburger {
+          display: none;
+     }
+}
+
+.error-msg {
+     color: rgba(248, 87, 58, 0.804);
+     margin: 0.4rem 0;
+     padding: 0.3rem;
+     border-radius: 6px;
+     width: 80%;
+     font-size: 0.85rem;
+     text-align: center;
+}
+
+.note-msg {
+     color: #fff;
+     background-color: rgba(166, 248, 58, 0.587);
+     margin: 0.4rem 0;
+     padding: 0.3rem;
+     border-radius: 6px;
+     width: 80%;
+     text-align: center;
+}
+
+/* NAVBAR END */

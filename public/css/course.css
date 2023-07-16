@@ -1,0 +1,167 @@
+* {
+     box-sizing: border-box;
+     font-family: 'Cairo', sans-serif;
+     padding: 0;
+     /* border: dotted 1px red; */
+     margin: 0;
+}
+
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+
+
+body {
+     background-color: #0F0E0E;
+}
+
+.container {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.course-card {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     direction: rtl;
+     padding: 1rem;
+}
+
+.course-card .course-cover {
+     width: 100%;
+     max-width: 676px;
+}
+
+.course-card .course-cover img {
+     width: 100%;
+     height: 160px;
+     border-radius: 12px;
+     object-fit: cover;
+     aspect-ratio: 16 / 9;
+}
+
+.course-title {
+     margin: 6px 0 1rem 0;
+}
+
+.course-title h1 {
+     width: 100%;
+     font-size: 1.2rem;
+     font-weight: 500;
+     font-family: 'Montserrat', sans-serif;
+     color: #fff;
+}
+
+.buy-link {
+     color: #fff;
+     text-decoration: none;
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+.course-details {
+     padding: 1rem;
+     background-color: #1B1B1B;
+     border: 1px solid #006FF8;
+     border-radius: 12px;
+     max-width: 676px;
+     color: #fff;
+}
+
+.course-details ul {
+     list-style: none;
+     margin-bottom: 1rem;
+}
+
+.course-details ul li {
+     display: flex;
+     color: rgba(255, 255, 255, 0.85);
+     gap: 0 8px;
+     align-items: center;
+}
+
+.course-details ul li span{
+     color: #fff;
+}
+
+.course-desc {
+     padding: 0.5rem;
+     font-size: 0.85rem;
+}
+
+.sLine-break {
+     width: 45%;
+     height: 1px;
+     background-color: #0F0E0E;
+     margin: 6px 0;
+}
+
+.buy-btn {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+}
+
+.buy-btn button:hover {
+     background-color: #0070f8ca;
+}
+
+.buy-btn button {
+     width: 165px;
+     align-self: center;
+     height: 38px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background-color: #006FF8;
+     color: #fff;
+     border-radius: 6px;
+     border: none;
+     cursor: pointer;
+     gap: 0 10px;
+     font-size: 1rem;
+}
+
+.buy-btn p {
+     color: rgba(255, 255, 255, 0.65);
+     text-align: center;
+     font-size: 11px;
+     font-family: Janna LT;
+     margin-top: 11px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: 16px;
+}
+
+.course-offers-con {
+     width: 100%;
+     padding: 1rem;
+     color: #fff;
+     margin-top: 1rem;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+.course-offers-con p {
+     font-size: 1.08rem;
+}
+
+.course-offers-con ul {
+     font-size: 0.85rem;
+}
+
+.line-break {
+     height: 1px;
+     background-color: #1B1B1B;
+     width: 55%;
+     margin: 0.65rem 0;
+}
