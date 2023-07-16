@@ -1,0 +1,244 @@
+* {
+     box-sizing: border-box;
+     font-family: 'Cairo', sans-serif;
+     padding: 0;
+     /* border: dotted 1px red; */
+     margin: 0;
+}
+
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+
+
+body {
+     background-color: #0F0E0E;
+}
+
+.container {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.con-head {
+     color: #fff;
+     padding: 1rem;
+     text-align: center;
+}
+
+.con-head p {
+     font-size: 1.1rem;
+     font-weight: 600;
+     width: 200px;
+     padding: 0.5rem;
+     color: #000;
+     background-color: #D9D9D9;
+}
+
+.con-body {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     width: 100%;
+     padding: 1rem;
+}
+
+.con-body form {
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     color: #fff;
+     max-width: 600px;
+     width: 100%;
+}
+
+.input-con {
+     display: flex;
+     width: 100%;
+     margin-bottom: 15px;
+     flex-direction: column;
+     justify-content: center;
+     max-width: 600px;
+     align-items: center;
+}
+
+.input-con input {
+     width: 100%;
+     background-color: #ECECEC;
+     border-radius: 4px;
+     border: none;
+     max-width: 600px;
+     padding: 15px 6px;
+     width: 255px;
+     height: 39px;
+}
+
+.input-con-con {
+     display: flex;
+     max-width: 600px;
+     justify-content: center;
+     align-items: center;
+}
+
+.input-con-con .input-con {
+     max-width: 600px;
+     font-size: 0.85rem;
+}
+
+.input-con-con input {
+     width: 50%;
+}
+
+.input-con input:focus {
+     outline: 1px solid #006ff8;
+}
+
+.input-con textarea:focus {
+     outline: 1px solid #006ff8;
+}
+
+.learns-for-watcher {
+     display: flex;
+     gap: 0.5rem;
+     margin-bottom: 2.45rem;
+     margin-top: 2rem;
+     width: 100%;
+     max-width: 600px;
+}
+
+.learns-for-watcher textarea {
+     height: 100px;
+     direction: rtl;
+     padding: 11px 6px;
+     width: 100%;
+}
+
+.learns-for-watcher div {
+     display: flex;
+     align-items: center;
+     gap: 0 0.5rem;
+}
+
+.thumbnail {
+     max-width: 600px;
+     border: 1px solid #006ff8;
+     padding: 1.5rem 1rem 1rem 1rem;
+     display: flex;
+     gap: 1rem 0;
+}
+
+form button {
+     width: 150px;
+     margin-top: 2rem;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background: #006ff8;
+     color: #fff;
+     align-self: center;
+     cursor: pointer;
+     gap: 0 10px;
+     flex-direction: row-reverse;
+     padding: 0.3rem;
+     border-radius: 8px;
+     border: none;
+}
+
+#description {
+     padding: 0.65rem;
+     direction: rtl;
+}
+
+input {
+     direction: rtl;
+}
+
+.videos-section {
+     width: 100%;
+     margin-top: 3rem;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     padding: 1rem;
+     margin-bottom: 2rem;
+}
+
+#chaptersContainer {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+.chapter-title {
+     margin: 0.26rem 0;
+}
+
+#addChapter {
+     margin-bottom: 0.75rem;
+}
+
+.top-con-chapter {
+     display: flex;
+     flex-direction: column;
+}
+
+.chapter {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-bottom: 0.8rem 0;
+     margin: 1rem;
+     width: 100%;
+     flex-direction: column;
+     padding: 1rem;
+     border-radius: 8px;
+     background-color: #1B1B1B;
+}
+
+.removeVideo {
+     background-color: #FF3333;
+     margin: 0.4rem 0 0 0;
+}
+
+.videosContainer {
+     width: 100%;
+     margin: 1rem 0;
+     display: flex;
+     padding-bottom: 0;
+     flex-direction: column;
+     background-color: #1B1B1B;
+     padding: 0.75rem;
+     border-radius: 8px;
+}
+
+.removeChapter {
+     width: 30px;
+     height: 30px;
+     background-color: #FF3333;
+}
+
+.video-field input {
+     margin: 0.3rem 0;
+}
+
+.videos-section .videos-head {
+     border-top: 2px solid #fff;
+     border-bottom: 2px solid #fff;
+     width: 100%;
+     text-align: center;
+     padding-top: 0.6rem;
+     margin-bottom: 2rem;
+     padding-bottom: 0.6rem;
+}
+
+#video-input {
+     margin: 1rem 0;
+     width: 100%;
+}
