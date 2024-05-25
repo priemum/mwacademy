@@ -4,7 +4,7 @@ const connectDB = require("../utils/db.js");
 const course = require("../models/course.js");
 
 const coursesShopGET = async (req, res, next) => {
-
+        
      try {
           const connect = await connectDB();
 
